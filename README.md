@@ -1,14 +1,14 @@
 # Top Spotify Songs of 2023
-<img src="" width="300">
+<img src="images/spotify logo.png" width="300">
 
-This project performs exploratory data analysis on the arrest dataset from the NYPD from 2006 - 2023, dataset from [Kaggle.](link) The goal is to find any patterns in the metrics of the most streamed songs, to see what kind of characteristics we need to include to create a song that has the best odds of going viral on Spotify. 
+This project performs exploratory data analysis on the arrest dataset from the NYPD from 2006 - 2023, dataset from [Kaggle.](https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023) The goal is to find any patterns in the metrics of the most streamed songs, to see what kind of characteristics we need to include to create a song that has the best odds of going viral on Spotify. 
 
 - Tools used: Jupyter Notebook, Python (Pandas, Numpy, Matplotlib, Seaborn)
 - [Link to the full notebook](https://github.com/kennyhj/spotify2023/blob/main/spotify_notebook.ipynb)
 
 ## 1. Examining the data structure using pandas
 - examining column headers, dataframe shape, and data types
-<img src="df_head" width="750">
+<img src="images/df_head.jpg" width="750">
 
 ## 2. Cleaning
 - Some playlist columns had incorrect datatypes due to the inclusion of commas
@@ -27,13 +27,13 @@ df['in_deezer_playlists'] = df['in_deezer_playlists'].replace(',','',regex=True)
   - Most streamed artists
   - Artists with most songs in the top of Spotify
 - Despite Taylor Swift having 12 more songs than the next artist in the top 1000 than the next artist, The Weeknd still passed her in total streams
-<img src="top songs" width="500">
+<img src="images/top10_streamed_songs.jpg" width="700">
 
 ### Keys and Modes
 - Created pie charts for:
   - Most common keys, top 100, and top 10
 - When looking overall the keys seem relatively balanced, but as we break into the top 100 and then the top 10, the key of C# looks to be the most frequently used
-<img src="top10keys" width="600">
+<img src="images/top1" width="600">
 
 - Created pie charts for:
   - Major vs Minor keys
