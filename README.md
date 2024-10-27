@@ -1,46 +1,63 @@
 # Top Spotify Songs of 2023
 <img src="" width="300">
 
-This project performs exploratory data analysis on the arrest dataset from the NYPD from 2006 - 2023, dataset from [Kaggle.](link)
+This project performs exploratory data analysis on the arrest dataset from the NYPD from 2006 - 2023, dataset from [Kaggle.](link) The goal is to find any patterns in the metrics of the most streamed songs, to see what kind of characteristics we need to include to create a song that has the best odds of going viral on Spotify. 
 
-- Tools used: Jupyter Notebook, Python P(andas, Numpy, Matplotlib, Seaborn)
+- Tools used: Jupyter Notebook, Python (Pandas, Numpy, Matplotlib, Seaborn)
 - [Link to the full notebook](https://github.com/kennyhj/spotify2023/blob/main/spotify_notebook.ipynb)
 
 ## 1. Examining the data structure using pandas
-- examining shape, data types
-<img src="data header" width="750">
+- examining column headers, dataframe shape, and data types
+<img src="df_head" width="750">
 
 ## 2. Cleaning
-- Created a table with specifications based on what I observed in the csv file
-- Dropped unneeded columns
-- Cleaned null values (opted to not drop those rows outright)
-- Observed values in each column to clean/group values (e.g. crime types often had typos, as well as having values that overlapped with each other)
+- Some playlist columns had incorrect datatypes due to the inclusion of commas
 ```Python
-example of cleaning
+df['in_deezer_playlists'] = df['in_deezer_playlists'].replace(',','',regex=True)
 ```
+- There were a couple of outlier rows consisting of errors in values or strange outlier values (ridiculously low stream counts compared to the rest of the data)
+- These rows were just dropped
+- In the end, there were 95 null values in the Keys column, where I could have searched each song and manually entered their keys but opted not to do so
 
-## 3. Visualizations) 
+## 3. Visualizations
 
 ### Streams, Songs, and Artists
-- Heatmap of arrests per precinct/borough
-- Boros ranked most to least arrests: Brooklyn, Manhattan, Bronx, Queens, Staten Island
-<img src="https://github.com/kennyhj/nypd_arrests/blob/main/images/heatmap.jpg" width="500">
+- Created bar charts for the top 10:
+  - Most streamed songs
+  - Most streamed artists
+  - Artists with most songs in the top of Spotify
+- Despite Taylor Swift having 12 more songs than the next artist in the top 1000 than the next artist, The Weeknd still passed her in total streams
+<img src="top songs" width="500">
 
 ### Keys and Modes
-- Clustered stacked bar chart of demographics data: race, gender, and age group
-- Black males age 25-44 have the highest arrest rates, followed by White-Hispanic males age 25-44
-- (There is no sole Hispanic race value in this dataset, it is divided as White-Hispanic and Black-Hispanic) 
-<img src="https://github.com/kennyhj/nypd_arrests/blob/main/images/demographics.jpg" width="600">
+- Created pie charts for:
+  - Most common keys, top 100, and top 10
+- When looking overall the keys seem relatively balanced, but as we break into the top 100 and then the top 10, the key of C# looks to be the most frequently used
+<img src="top10keys" width="600">
+
+- Created pie charts for:
+  - Major vs Minor keys
+  - C# Major vs C# Minor, top 100, and top 10
+- C# Major is more common than C# Minor
+<img src="majorvsminor" width="600">
 
 ### Release Year
-- Stacked bar chart of the NYC 2020 Census displaying populations by race per borough
-- The black population accounts for the 3rd highest population in NYC despite having the highest arrest rates
-<img src="https://github.com/kennyhj/nypd_arrests/blob/main/images/census_2020_nyc.jpg" width="600">
+- Charted the # of songs in the dataset ordered by release year
+- The vast majority of the top songs of 2023 were actually released in 2022
+  - Followed by 2023, then 2021
+- This tells us we can comfortably wait a year or two to measure our song's charting performance
+<img src="releaseyearchart" width="600">
 
 ### Song Qualities , BPM, and Playlists
-- Line graph of # of arrests per year (2006 - 2023)
-- A downward trend in the 2010s, but then saw a significant rise starting in 2020
-<img src="https://github.com/kennyhj/nypd_arrests/blob/main/images/yearly.jpg" width="550">
+- There are some interesting metrics in the data: danceability, valence, energy, acousticness, instrumentalness, liveness, speechiness
+<img src="song quality" width="550">
+
+- BPM: most songs tend to be around 90 or 130 bpm
+<img src = "bpm" width ="550">
+
+- Inclusion in Spotify playlists is highly correlated
+- But this could be the case where top songs tend to be added to more playlists, rather than the inverse where a song is added to a lot of playlists, therefore getting more streams (chicken and egg situation). Either way, playlisting is a positive thing. 
+<img src = "playlists" width = "500">
 
 ## 4. Final Takeaways
 - When producing our next viral song we want:
