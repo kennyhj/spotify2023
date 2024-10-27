@@ -33,31 +33,31 @@ df['in_deezer_playlists'] = df['in_deezer_playlists'].replace(',','',regex=True)
 - Created pie charts for:
   - Most common keys, top 100, and top 10
 - When looking overall the keys seem relatively balanced, but as we break into the top 100 and then the top 10, the key of C# looks to be the most frequently used
-<img src="images/top1" width="600">
+<img src="images/top10_keys.jpg" width="300">
 
 - Created pie charts for:
   - Major vs Minor keys
   - C# Major vs C# Minor, top 100, and top 10
 - C# Major is more common than C# Minor
-<img src="majorvsminor" width="600">
+<img src="images/top100_majorvsminor.jpg" width="300">
 
 ### Release Year
 - Charted the # of songs in the dataset ordered by release year
 - The vast majority of the top songs of 2023 were actually released in 2022
   - Followed by 2023, then 2021
 - This tells us we can comfortably wait a year or two to measure our song's charting performance
-<img src="releaseyearchart" width="600">
+<img src="images/release_year_chart.jpg" width="450">
 
 ### Song Qualities , BPM, and Playlists
 - There are some interesting metrics in the data: danceability, valence, energy, acousticness, instrumentalness, liveness, speechiness
-<img src="song quality" width="550">
+<img src="images/song_quality_histplots.jpg" width="600">
 
 - BPM: most songs tend to be around 90 or 130 bpm
-<img src = "bpm" width ="550">
+<img src = "images/bpm.jpg" width ="350">
 
 - Inclusion in Spotify playlists is highly correlated
 - But this could be the case where top songs tend to be added to more playlists, rather than the inverse where a song is added to a lot of playlists, therefore getting more streams (chicken and egg situation). Either way, playlisting is a positive thing. 
-<img src = "playlists" width = "500">
+<img src = "images/playlist_corr.jpg" width = "300">
 
 ## 4. Final Takeaways
 - When producing our next viral song we want:
